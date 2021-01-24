@@ -15,12 +15,14 @@ public class E3ClaseDate {
         En el constructor ponemos el formato de fecha:
          "E" dia resumido
          "EEEE" dia completo
-         "dd" para el dia en numero
+         "dd" para el dia en numero del mes
+         "DD" Dìa pero del año
          "MM" para el mes en numero
          "MMM" para nombre de mes acortado
          "MMMM" para el nombre del mess
          "yyyy" para el numero de año
-         "HH" hora
+         "HH" hora formato 24 hs
+         "hh" hora formato 12hs se agrega con "a" para pm o am
          "mm" Minutos
          "ss" segundos
          Revisar doc de SimpleDateFormat para ver que es cada letra y los patroes
