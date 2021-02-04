@@ -2,6 +2,26 @@ public class C1Tercero {
     public static void main (String [] args){
 
         /*
+        C1*String Literal vs Operador new
+
+        String strN = new String("asdf");
+        String strL="asdf";
+
+        -Si hacemos:
+        String a="hola";
+        String b="hola"
+        y hacemos a==b saltria true ya que java "recicla" la primer variable, hace que b apunte a a.
+         SOLO OCURRE SI siempre que se crean ambas por literal.
+        Si creo un obj String y despues vuelvo a crear otro objeto de tipo String con el mismo valor, para optimizar java no crea un nuevo objeto, solo asigna la referencia
+         (tdo para optimizar)
+         SOLO OCURRE SI siempre que se craen ambas por literal.
+        no funciona si se crean con el operador new
+
+         */
+
+
+
+        /*
         String j = new String("hola");
 
         String k= j.transform(f->{return f+"chau";});
@@ -33,7 +53,7 @@ public class C1Tercero {
         */
 
         /*
-        //------------String con concat() 6 miliseg---------------------------
+        //------------String con concat() 6 miliseg; Tarda menos que “+” en números pequeños de concatenaciónes---------------------------
         long start = System.currentTimeMillis();
 
         for(int i=0; i<1000; i++){

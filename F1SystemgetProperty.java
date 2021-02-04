@@ -18,5 +18,7 @@ public class F1SystemgetProperty {
         Properties propiedades= System.getProperties();
 
         propiedades.list(System.out);
+
+        //getPropreties() devuelve objeto Properties mientras que getProperty() solo un String
     }
 }

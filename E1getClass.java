@@ -20,5 +20,13 @@ public class E1getClass {
             System.out.println("metodo "+aux+" = " + metodo.getName());
             aux++;
         }
+        /*
+            *.getClass()/.getPackage()
+                Genera un Objeto de tipo Class o pakage (dependiendo de cual de los dos metodos usemos) con diferentes
+                métodos para obtener el paquete asi como el nombre de la clase y otras propiedades del objeto, tales
+                como los métodos de la clase
+                -getSuperclass()
+
+         */
     }
 }

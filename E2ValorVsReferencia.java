@@ -76,6 +76,24 @@ public class E2ValorVsReferencia {
         p.setName("NuevoNmbreModificado");
         p.setAge(312);
     }
+
+    /*
+            *pasar por Valor o por Referencia:
+        -NO existe pasaje por referencia, siempre se pasa por valor, ver “alaracion StackOverflow”. Pero tratemos en este caso a por “referencia” a que podemos modificar el valor que contiene un objeto desde un método.
+
+        Si pasamos un primitivo como int a un metodo y dentro del método se modifica, luego cuando se salga del método, ese int original mantendrá su valor.  Ya que se pasa por valor la variable, mientras que si se pasara por referencia (Como un objeto) si cambiaria. Pero hay excepciones: las Clases Wrapper y String que son inmutables por lo tanto cuando se modifican retornan una nueva instancia (apuntan o hacen referenciia a un objeto nuevo), no modifican la original por lo tanto al pasar un String a un método o un Integer, estos no se verán afectados fuera de la función o método independientemente de lo que se haga dentro del método.
+
+           Aclaracion de StackOverflow:
+         En Java no existe el paso por referencia. El paso por valor (o por copia como algunos llaman) es obligatorio.
+        Dirás pero yo cuando paso un array por parámetros y lo modifico desde el método al que se lo paso, este cambia, no estoy pasando una copia del array
+        Parece ser que mi argumento falla, pero te explico:
+        Lo que tú almacenas en una variable no primitiva no es el objeto en sí sino una dirección o identificador del objeto en el espacio dinámico de memoria. Cuando pasas por parámetros la variable, estás pasando una copia de dicha dirección.
+        {………………………………………………………………………………………………..….}
+        Sólo harás que el parámetro v ya no almacene la dirección del objeto del tipo Ventana. En la clase otraCualquiera, la variable ventana seguirá teniendo la dirección correcta.
+        Por tanto, el paso ES SIEMPRE por copia del valor, a diferencia de, por ejemplo, C o C++, donde se permite el paso por referencia. Lo que tienes que entender es que en caso de objetos el valor que almacena una variable es una dirección o identificador del objeto y no el objeto en sí mismo.
+
+
+     */
 }
 
 class Persona {
