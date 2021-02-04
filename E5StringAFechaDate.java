@@ -18,8 +18,9 @@ public class E5StringAFechaDate {
             //Comparar Fechas:
             Date fechaActual= new Date();
 
-            if(fechaIngresada.after(fechaActual))
-
+            if(fechaIngresada.after(fechaActual)) System.out.println("La fecha ingresada es posterior a la fecha actual");
+            else if(fechaIngresada.before(fechaActual))  System.out.println("La fecha ingresada es anterior a la fecha actual");
+            else if (fechaIngresada.equals(fechaActual)) System.out.println("Fechas son iguals");
 
         } catch (ParseException e) {
             e.printStackTrace();
