@@ -1,0 +1,3 @@
+
+
+*En Modelo va la Lógica de negócio, o los datos
