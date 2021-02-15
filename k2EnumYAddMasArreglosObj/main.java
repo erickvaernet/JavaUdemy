@@ -16,7 +16,7 @@ public class main {
         System.out.println("a1.toString() = " + a1.toString());
         System.out.println("a2.toString() = " + a2.toString());
 
-        //switch mejorado a partir de java 13
+        //switch mejorado a partir de java 13// con 13.0.2 no funciona
         switch (a1.getTipo()){
             case CONVERTIBLE -> System.out.println("a1 Es un convertible");
             case SEDAN -> System.out.println("a1 Es un Sedan");
