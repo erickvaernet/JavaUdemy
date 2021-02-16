@@ -31,7 +31,7 @@ public class L1Main {
 
 
         Persona.imprimir();
-        PersonaHija.imprimir();
+        Persona1Hija.imprimir();
 
 
     }

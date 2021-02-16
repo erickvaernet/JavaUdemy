@@ -1,8 +1,9 @@
 package L1Paquetes.homee;
 
-public class PersonaHija extends Persona{
 
-    public PersonaHija(String nombre, String apellido) {
+public class Persona1Hija extends Persona{
+
+    public Persona1Hija(String nombre, String apellido) {
         super(nombre, apellido);
     }
 
