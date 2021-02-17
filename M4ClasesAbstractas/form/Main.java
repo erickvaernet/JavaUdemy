@@ -2,6 +2,7 @@ package M4ClasesAbstractas.form;
 
 import M4ClasesAbstractas.form.elementos.*;
 import M4ClasesAbstractas.form.elementos.select.Opcion;
+import M4ClasesAbstractas.form.validador.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,13 +20,22 @@ public class Main {
 
 
         InputForm username= new InputForm("username");
-        InputForm pass = new InputForm("contraseña", "password");
+        username.addValidador(new RequeridoValidador());
+
+        InputForm pass = new InputForm("clave", "password");
+        pass.addValidador(new RequeridoValidador()).addValidador(new LargoValidador(6,12));
+
         InputForm email= new InputForm("email","email");
+        email.addValidador(new RequeridoValidador()).addValidador(new EmailValidador());
+
         InputForm edad= new InputForm("edad","number");
+        edad.addValidador(new NumeroValidador());
 
         TextareaForm experiencia = new TextareaForm("experiencia laboral",5,9);
 
+
         SelectForm lenguaje = new SelectForm("lenguaje");
+        lenguaje.addValidador(new NoNulo());
 
         Opcion java =new Opcion("1","Java");
         lenguaje.addOpcion(java);
@@ -44,7 +54,7 @@ public class Main {
 
 
         username.setValor("Erick7897");
-        pass.setValor("CoD*306");
+        pass.setValor("CoU*385Ta");
         email.setValor("erickadrielnet@gmail.com");
         edad.setValor("25");
         experiencia.setValor("......10 años de experiencia en.....");
@@ -76,6 +86,20 @@ public class Main {
             System.out.println("<br>");
         });
 
+        elementos.forEach(e->{
+            if(!e.esValido()) {
+                System.out.println();
+                /*System.out.println("* Error en la validacion de \""+ e.getNombre()+"\" :");*/
+                //Métodos ppor referencia en exp Lambda::Se pasa por argumento directamente
+                e.getErrores().forEach(System.err::println);
+            };
+        });
+
+        /*
+        Clases abstractas dicen lo que son y tambine lo que hacen un grupo de subclasese mientras que las interfaces
+        no importa que so, solo agrupan clases con un mismo comportamiento (Contrato de implementacion)
+
+        */
 
     }
 }
