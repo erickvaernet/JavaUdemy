@@ -92,12 +92,14 @@ public class Main {
                 /*System.out.println("* Error en la validacion de \""+ e.getNombre()+"\" :");*/
                 //Métodos ppor referencia en exp Lambda::Se pasa por argumento directamente
                 e.getErrores().forEach(System.err::println);
-            };
+            }
         });
 
         /*
-        Clases abstractas dicen lo que son y tambine lo que hacen un grupo de subclasese mientras que las interfaces
-        no importa que so, solo agrupan clases con un mismo comportamiento (Contrato de implementacion)
+        Clases abstractas dicen lo que son y tambien lo que hacen un grupo de subclasese mientras que las interfaces
+        no importa que so, solo agrupan clases con un mismo comportamiento (Contrato de implementacion)ej: avion,
+        ave, murcielago vuelan, implementarian la interfaz volar. Terminan en able o ible. Ejemplo MensajeFormateable.
+        Desacopla las implementaciones concretas, hace que el codigo se mas generico y desacoplable.
 
         */
 

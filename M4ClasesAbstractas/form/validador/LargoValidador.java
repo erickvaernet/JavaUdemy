@@ -1,6 +1,6 @@
 package M4ClasesAbstractas.form.validador;
 
-public class LargoValidador extends Validador{
+public class LargoValidador extends Validador implements MensajeFormateable{
 
     protected String mensaje="El campo %s debe tener un minimo de %d carácteres y un máximo de %d ";
     private int min;
@@ -47,6 +47,7 @@ public class LargoValidador extends Validador{
         return (valor.length()>min && valor.length()<max );
     }
 
+    @Override
     public String getMensajeFormateado(String campo){
         return String.format(this.mensaje,campo,min,max);
     }

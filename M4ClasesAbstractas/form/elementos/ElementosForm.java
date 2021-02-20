@@ -1,6 +1,7 @@
 package M4ClasesAbstractas.form.elementos;
 
 import M4ClasesAbstractas.form.validador.LargoValidador;
+import M4ClasesAbstractas.form.validador.MensajeFormateable;
 import M4ClasesAbstractas.form.validador.Validador;
 
 import java.util.ArrayList;
@@ -15,8 +16,8 @@ public abstract class ElementosForm {
 
 
     public ElementosForm() {
-        this.validadores= new ArrayList<Validador>();
-        this.errores= new ArrayList<String>();
+        this.validadores= new ArrayList<>();
+        this.errores= new ArrayList<>();
     }
 
     public ElementosForm(String nombre) {
@@ -47,13 +48,13 @@ public abstract class ElementosForm {
 
         for (Validador v:validadores) {
             if(!v.esValido(this.valor)){
-                if(v instanceof LargoValidador){
+                if(v instanceof MensajeFormateable){
                     this.errores.add(((LargoValidador) v).getMensajeFormateado(nombre));
                 }
                 else {
                     this.errores.add(String.format(v.getMensaje(), nombre));
                 }
-            };
+            }
         }
         return this.errores.isEmpty(); //o con .size()==0
     }
