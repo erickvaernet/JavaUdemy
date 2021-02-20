@@ -15,7 +15,7 @@ public class MainImpresora {
        interfaz, donde todas las clases accedan a servicios a travez de intrefaces que son implementados por clases
        concretas. Al no depende de clases concretas (sino de entidades abstractas) nuestro diseño sera mas reutilizable
 
-       -Pueden tener atributos  final static;
+       -Pueden tener atributos  final static    ;
        -Se pueden tener métodos implementados Static o Default
 
        !!! Se pueden implementar métodos en interfaces ya que a veces no necesitamos ciertos métodos de la misma en una
