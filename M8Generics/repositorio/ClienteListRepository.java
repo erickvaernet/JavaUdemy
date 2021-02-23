@@ -1,12 +1,12 @@
-package M7InterfacesCRUDyListas.repositorio;
+package M8Generics.repositorio;
 
-import M7InterfacesCRUDyListas.modelo.Cliente;
+import M8Generics.modelo.Cliente;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class ClienteListRepository implements  FullRepository //implements CrudRepository,OrdenableRepository,PaginableRepository
+public class ClienteListRepository implements FullRepository //implements CrudRepository,OrdenableRepository,PaginableRepository
 {
 
     private  List<Cliente> dataSource;
@@ -67,7 +67,7 @@ public class ClienteListRepository implements  FullRepository //implements CrudR
                 int resultado =0;
                 if (direccion== Direccion.ASC){
                   resultado=this.ordenar(o1,o2);
-                }else  if (direccion==Direccion.DESC){
+                }else  if (direccion== Direccion.DESC){
                    resultado=this.ordenar(o2,o1);
                 }
                 return resultado;
