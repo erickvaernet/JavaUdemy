@@ -18,7 +18,7 @@ public class Main {
         */
 
         //implementacion de un DAO
-        CrudRepository repo= new ClienteListRepository();
+        CrudRepository repo= new ClienteListRepository(); //Podriamos reemplazar con FullRespository, en todos
 
         repo.crear(new Cliente("Erick","Vaernet"));
         repo.crear(new Cliente("Ian","Vaernet"));
