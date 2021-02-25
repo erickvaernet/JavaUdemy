@@ -1,9 +1,11 @@
 package M82Generics.repositorio;
 
+import M82Generics.modelo.BaseEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractListRepository<T> implements FullRepository<T> //implements CrudRepository,OrdenableRepository,PaginableRepository
+public abstract class AbstractListRepository<T extends BaseEntity> implements FullRepository<T> //implements CrudRepository,OrdenableRepository,PaginableRepository
 {
 
     protected List<T> dataSource;
