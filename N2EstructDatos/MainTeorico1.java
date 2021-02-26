@@ -53,10 +53,14 @@ public class MainTeorico1 {
    6 tipos, aca solo 3:
 
    -->>HashSet: No es ordenado, los elementoos se agregan con add pero no asegura ningun orden, no permite duplicado, es
-   la mas comun. Todos sus elem deben implementar el hash code para ver si son iguales
+   la mas comun. Todos sus elem deben implementar el hash code para ver si son iguales. . EnHashSet se detecta mediante
+    el método equals si dos elementos son iguales.Diferente en treeSet (por compareTo)
    -->>TreeSet: Es ordenado, no permite duplicados, permite comparator o comparable, por defecto se ordenan de manera
    natural, es decir alfabeticamente o numericamente, cada vez que s eagrega unelemento se vuelve a ordenar el elemento
-   (baja rendimiento ya que se vuelve a ordenar tdo con cada ingreso)
+   (baja rendimiento ya que se vuelve a ordenar tdo con cada ingreso).IMPORTANTE!!!!! el treeSet usa el compareTo
+    para saber si dos objetos son iguales. a diferencia del hashSet que es mediante el método equals que se detecta si
+    son iguales
+
    -->>LinkedHashSet:Trabaja con lista enlazada combinada con hashset y mantiene orden en el que se van gregando los
    elementos.
    --->> Todos los sets trabajan con mapas por detras de escena.
