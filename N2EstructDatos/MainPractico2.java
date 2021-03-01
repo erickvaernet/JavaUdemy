@@ -97,5 +97,71 @@ public class MainPractico2 {
             System.out.println(alu.getNombre());
         }
 
+       //--------------------------------------------
+
+        //LIST Orden y Tree
+
+        System.out.println("List 2 comparable y comparator");
+        List<Alumno> alumnos1= new ArrayList<>();
+        alumnos1.add(new Alumno("Erick",10D));
+        alumnos1.add(new Alumno("Ian",10.0));
+        alumnos1.add(new Alumno("Otro",8D));
+        alumnos1.add(new Alumno("BOtro2",9D));
+        alumnos1.add(new Alumno("ARick",10D));
+
+        /*
+            En treeSet EL comparator podemos pasarlo cuando intanciamos el mismo, ya que en el constructor de TreeSet se
+        encuentra uno que recibe cualquiera que implemente Comparator, por lo tanto podemos implementar la interfaz al
+        vuelo, y de esta manera darle desde un inicio el como se debe ordenar.
+            En List en cambio podemos pasar el Comparator solo en el método sort y no desde el inicio, ya que se ordenan por
+        defecto en el orden en que las agregamos
+        */
+
+        /*
+        alumnos1.sort(new Comparator<Alumno>() {
+            @Override
+            public int compare(Alumno o1, Alumno o2) {
+                if (o1.getNombre().compareTo(o2.getNombre())<0){
+                    return -1;
+                }else  if (o1.getNombre().compareTo(o2.getNombre())>0){
+                    return 1;
+                }
+                return 0;
+            }
+        });
+         */
+
+        // alumnos1.sort((o1, o2) -> o1.getNombre().compareTo(o2.getNombre()));
+        // alumnos1.sort(Comparator.comparing((Alumno al)->al.getNombre()));
+
+        alumnos1.sort(Comparator.comparing(Alumno::getNombre));
+        alumnos1.forEach(System.out::println);
+
+        //-----------------*ArrayList Métodos*-------------------------
+
+        System.out.println("List 3 lugares en array");
+        List<Alumno> alumnos2= new ArrayList<>();
+        alumnos2.add(new Alumno("Erick",10D));
+        alumnos2.add(new Alumno("Ian",10.0));
+        alumnos2.add(new Alumno("Otro",8));
+
+        //Lo insertamos en el indice 1:
+        alumnos2.add(1,new Alumno("BOtro2",9D)); //Lo pasamos del indice 3 al 1
+        alumnos2.add(new Alumno("ARick",10D));
+
+        //Se desplazan el resto de elementos hacia adelante
+        alumnos2.forEach(System.out::println);
+
+        System.out.println("---------------lista.set() Reemplazo y elim-------------------");
+        //Al usar .set en lugar de .add, lo que hacemos es reemplazar el elemento en la posicion indicada
+        alumnos2.set(1,new Alumno("Reemplazado BOtro2",10D));
+
+        /*podemos remover por indice o por objeto, recordemos que es necesario implementar el .equals para decir que dos
+        objetos son iguales cuandio tienen mismo nombre y nota, sino no se eliminara ya que se detecta de otra forma si
+        son iguales o no*/
+         alumnos2.remove(new Alumno("Otro",8));
+        //alumnos2.remove(3);
+
+        alumnos2.forEach(System.out::println);
     }
 }

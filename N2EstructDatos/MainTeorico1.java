@@ -34,7 +34,7 @@ public class MainTeorico1 {
              -Extra: Iteracion entre LinkedList y Arraylist es de rendimiento constante
 
     -->>LinkedList:Listas Doblemente Enlazadas.Podemos implementar pilas y colas con ello(?.Podemos obtener un valor o
-    elemento pero tambien extraer (obtener elemento y eliminar).
+    elemento pero tambien extraer (obtener elemento y eliminar). Se puede ordenar con Soirt al igual que arrayList
              -Pros: Lo que es manipulación de elementos es muy rapido, ya sea insertar o eliminar del centro por ejemplo.
              Ya que lo hace a travez de lista enlazada, es decir trabaja con nodos que apuntan hacia adelante y atras.
              Rápido al agregar elementos en cualquierparte

@@ -44,4 +44,16 @@ public class Alumno implements Comparable<Alumno>{
         return Double.compare(nota, o.getNota());
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Alumno alumno = (Alumno) o;
+        return Double.compare(alumno.nota, nota) == 0 && Objects.equals(nombre, alumno.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, nota);
+    }
 }
