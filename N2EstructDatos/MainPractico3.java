@@ -2,6 +2,7 @@ package N2EstructDatos;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 
 public class MainPractico3 {
@@ -35,7 +36,7 @@ public class MainPractico3 {
         enlazada.forEach(System.out::println);
 
         System.out.println("-----Removiendo ultimo y primero---");
-        //enlazada.removeFirst();
+        //enlazada.removeFirst(); //similar es pop, son equivalentes
         //En vez de lanzar excepcion retorna null
         enlazada.pollFirst();
 
@@ -59,15 +60,33 @@ public class MainPractico3 {
         -remove()
         Métodos en ListIterator:
         -hasNext ()
-        -siguiente()
-        -anterior()
+        -next()
+        -previous()
         -hasPrevious ()
         -eliminar()
         -nextIndex ()
         -previousIndex ()
          */
 
+        System.out.println("----ListIterator.next()-----");
+        ListIterator<Alumno> listIt= enlazada.listIterator();
 
+        while (listIt.hasNext()){
+            System.out.println(listIt.next());
+        }
 
+        System.out.println("----ListIterator.previous() -----");
+        while (listIt.hasPrevious()){
+            System.out.println(listIt.previous());
+        }
+
+        //Lo siguiente dara falso ya que volvemos al indice 0 con el iterador en el while anterior
+        System.out.println(listIt.hasPrevious());
+
+        //no existe elemento previo, dara -1:
+        System.out.println(listIt.previousIndex());
+
+        //Dara error ya que no hay elemento previo:
+        //System.out.println(listIt.previous());
     }
 }
