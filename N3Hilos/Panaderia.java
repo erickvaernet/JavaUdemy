@@ -5,10 +5,7 @@ public class Panaderia {
     private boolean disponile;
 
     public synchronized void hornear(String masa){
-        this.pan=masa;
-        System.out.println("Se hornea pan de "+masa);
-        this.disponile=true;
-        notify();
+        //while en lugar de if para asegurar que no se despierte el hilo por equivocacion
         while (disponile){
             try {
                 wait();
@@ -16,7 +13,10 @@ public class Panaderia {
                 e.printStackTrace();
             }
         }
-
+        this.pan=masa;
+        System.out.println("Se hornea pan de "+masa);
+        this.disponile=true;
+        notify();
     }
 
     public synchronized void consumir(){

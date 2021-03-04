@@ -1,11 +1,12 @@
 package N3Hilos;
 
 
+import N3Hilos.panaderiaEjemplo.Consumidor;
+import N3Hilos.panaderiaEjemplo.Panadero;
+
 public class MainPractico3 {
     public static void main(String[] args) throws InterruptedException {
 
-
-        //Thread mainHilo= Thread.currentThread();
 
         /*
         Sleep solo pausa el hilo actual en el que se ejecute mientras que join, espera a que los hilos que se estan
@@ -14,6 +15,8 @@ public class MainPractico3 {
          */
 
         /*
+        Thread mainHilo= Thread.currentThread();
+
         Thread h1= new Thread(new ImplementRun("Hilo-1"));
         h1.start();
         Thread h2= new Thread(() -> {
@@ -34,6 +37,8 @@ public class MainPractico3 {
         h1.join();
         h2.join();
         System.out.println("Se junta h1 y main, y luego h2 al main");
+         */
+
 
         /*
         podemos crear métodos sincronizados con el modif synchronized, el cual evita que un hilo ingrese al método si
@@ -52,6 +57,7 @@ public class MainPractico3 {
         hi3.start();
         Thread.sleep(100);
         System.out.println(hi3.getState());
+         */
 
         //----------------------------*Métodos wait y notify*--------------------------
 
@@ -66,7 +72,7 @@ public class MainPractico3 {
          método notify para despertar al hilo de consumir().
          */
 
-
+        /*
         Panaderia panaderia=new Panaderia();
 
         new Thread(() -> {
@@ -80,6 +86,16 @@ public class MainPractico3 {
                 panaderia.consumir();
             }
         }).start();
+         */
+
+        Panaderia panaderia2=new Panaderia();
+        Panadero panadero=new Panadero(panaderia2,"Masapan2");
+        Consumidor consumidor= new Consumidor(panaderia2);
+
+        new Thread(panadero,"hiloPpanadero").start();
+        new Thread(consumidor,"hiloConsumidor").start();
+
+
 
 
 
