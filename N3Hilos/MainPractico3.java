@@ -4,13 +4,16 @@ package N3Hilos;
 public class MainPractico3 {
     public static void main(String[] args) throws InterruptedException {
 
-        Thread mainHilo= Thread.currentThread();
+
+        //Thread mainHilo= Thread.currentThread();
+
         /*
         Sleep solo pausa el hilo actual en el que se ejecute mientras que join, espera a que los hilos que se estan
         ejecutando en su proceso finalicen. Join= Método de la clase “java.lang.Thread” que bloquea al thread llamante
         hasta que el thread llamado acabe de ejecutar su método run().
          */
 
+        /*
         Thread h1= new Thread(new ImplementRun("Hilo-1"));
         h1.start();
         Thread h2= new Thread(() -> {
@@ -38,6 +41,7 @@ public class MainPractico3 {
         para que el segundo pueda entrar
          */
 
+        /*
         Thread hi1 = new Thread(new SincronRun("Hola ","que tal"));
         Thread hi2 = new Thread(new SincronRun("¿como ","estas?"));
         Thread hi3 = new Thread(new SincronRun("adios ","nos vemos"));
@@ -51,6 +55,31 @@ public class MainPractico3 {
 
         //----------------------------*Métodos wait y notify*--------------------------
 
+        /*
+        - wait() pausara el hilo que lo ejecuta
+        - notify() despertara a un hilo al azar de los que esteen pausados en un mismo objeto.
+        - notifyAll(), despertara Todos los hilos que esteen pausados en un mismo objeto
+        En el ejemplo de  panaderia tenemos un método hornear() que ordena el pan y pone en pausa el hilo
+         que lo ejecuta con wait(). Mientras hay otro hilo que ejecuta cnsumir() el cual si hay pan,lo
+         "consume" y usa el metodo notify() para despertar el hilo de hrnear(), mientras consumir se pone
+         en pausa con wait hasta que haya otro pan disponible creado con hornear(), el cual usara el
+         método notify para despertar al hilo de consumir().
+         */
+
+
+        Panaderia panaderia=new Panaderia();
+
+        new Thread(() -> {
+            for (int i=0; i<10;i++) {
+                panaderia.hornear(String.valueOf(i));
+            }
+        }).start();
+
+        new Thread(() -> {
+            for (int i=0; i<10;i++) {
+                panaderia.consumir();
+            }
+        }).start();
 
 
 
