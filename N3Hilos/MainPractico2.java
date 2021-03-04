@@ -33,6 +33,48 @@ public class MainPractico2 {
         //--------------------------*Creando Hilo de manera funcional-----------------------------------
 
 
+        //*Con clases anonimas:
 
+        Runnable r1= new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Se inicia hilo: "+
+                        Thread.currentThread().getName()); //permite obtener el nombre dle hilo en el que se esta ejecutando
+
+                for (int i=0; i<10; i++){
+                    System.out.println(i+"-"+Thread.currentThread().getName());
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                System.out.println("Fin hilo: "+ Thread.currentThread().getName());
+            }
+        };
+
+        new Thread( r1,"num1").start();
+
+
+        //*Con lambda func:
+
+        Runnable r2= () -> {
+            System.out.println("Se inicia hilo: "+
+                    Thread.currentThread().getName());
+
+            for (int i=0; i<10; i++){
+                System.out.println(i+"-"+Thread.currentThread().getName());
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            System.out.println("Fin hilo: "+ Thread.currentThread().getName());
+        };
+
+        new Thread(r2,"hiloConLambda").start();
     }
 }

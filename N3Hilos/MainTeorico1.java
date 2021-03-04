@@ -42,8 +42,8 @@ public class MainTeorico1 {
         - notify(), notifyAll(),el tread que libero el recurso espera que otrro hilo entre y use estos métodos...
 
         *Thread.sleep(), pausa un hilo unos miliseg o seg, dejando en estado TIMED_WAITING, esperando con limite
-         de tiempo.
-         -Ampliar!!!
+         de tiempo. mientras que con join() el hilo que ejecuta el método espera al  hillo que llama el método(Ejemplo
+         en MainPractico3)
 
          */
 
