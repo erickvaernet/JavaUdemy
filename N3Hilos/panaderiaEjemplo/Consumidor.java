@@ -2,6 +2,8 @@ package N3Hilos.panaderiaEjemplo;
 
 import N3Hilos.Panaderia;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Consumidor implements Runnable{
     private Panaderia panaderia;
 
@@ -11,6 +13,10 @@ public class Consumidor implements Runnable{
 
     @Override
     public void run() {
-        panaderia.consumir();
+
+        for(int i=0;i<10; i++){
+            panaderia.consumir();
+        }
+
     }
 }

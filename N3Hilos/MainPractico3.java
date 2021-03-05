@@ -4,6 +4,8 @@ package N3Hilos;
 import N3Hilos.panaderiaEjemplo.Consumidor;
 import N3Hilos.panaderiaEjemplo.Panadero;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class MainPractico3 {
     public static void main(String[] args) throws InterruptedException {
 
@@ -72,21 +74,9 @@ public class MainPractico3 {
          método notify para despertar al hilo de consumir().
          */
 
+
         /*
-        Panaderia panaderia=new Panaderia();
-
-        new Thread(() -> {
-            for (int i=0; i<10;i++) {
-                panaderia.hornear(String.valueOf(i));
-            }
-        }).start();
-
-        new Thread(() -> {
-            for (int i=0; i<10;i++) {
-                panaderia.consumir();
-            }
-        }).start();
-         */
+        //Panaderia con Clases Objetos Panadero y Consumidor
 
         Panaderia panaderia2=new Panaderia();
         Panadero panadero=new Panadero(panaderia2,"Masapan2");
@@ -94,8 +84,25 @@ public class MainPractico3 {
 
         new Thread(panadero,"hiloPpanadero").start();
         new Thread(consumidor,"hiloConsumidor").start();
+         */
 
+        //Panaderia con funciones lambda
+        Panaderia p3=new Panaderia();
 
+        new Thread(()->{
+            for(int i=0;i<10;i++) {
+                p3.hornear("Pan N "+i);
+                try {
+                    Thread.sleep(ThreadLocalRandom.current().nextInt(500,1500));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+        new Thread(()->{
+            for(int i=0;i<10;i++) p3.consumir();
+        }).start();
 
 
 
@@ -111,4 +118,6 @@ public class MainPractico3 {
         }
         System.out.println(f2);
     }
+
+
 }
