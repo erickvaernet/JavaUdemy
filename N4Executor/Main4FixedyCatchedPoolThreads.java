@@ -13,7 +13,7 @@ public class Main4FixedyCatchedPoolThreads {
          y se diferencia de catched ya que este ultimo trabaja con los hilos "bajo demanda".
          Tambien podemos hacer uso de las Tareas, usando SigleThreadScheduledExecutor o ScheduledThreadPool o*/
 
-        /*
+
         ExecutorService executor = Executors.newFixedThreadPool(2);
         //si usaramos 2 en vez de 3, un trabajo quedaria en espera y cuando finalice una de las otras dos recien se iniciaria
 
@@ -54,15 +54,16 @@ public class Main4FixedyCatchedPoolThreads {
         }
 
         System.out.println("Resultados: "+result1.get()+" / "+result2.get()+" / "+ result3.get());
-         */
+
 
         //-------------Con Panaderia------------
+        /*
 
         //Casteamos a ThreadPoolExecutor para obtener algunas funcionalidades más
         ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(2);
         Panaderia p= new Panaderia();
-        Panadero panadero = new Panadero(p,"Masa1");
-        Consumidor consumidor= new Consumidor(p);
+        Runnable panadero = new Panadero(p,"Masa1");
+        Runnable consumidor= new Consumidor(p);
 
         Future<?> result= executor.submit(panadero);
         Future<?> result2= executor.submit(consumidor);
@@ -70,6 +71,8 @@ public class Main4FixedyCatchedPoolThreads {
         executor.shutdown();
         System.out.println("Tamaño del pool:"+executor.getPoolSize()); //Pertenece a ThreadPoolExc..
         System.out.println("En cola:"+executor.getQueue().size()); //Pertenece a ThreadPoolExc..
+
+         */
 
 
     }
