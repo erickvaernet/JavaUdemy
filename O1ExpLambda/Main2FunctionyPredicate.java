@@ -2,7 +2,9 @@ package O1ExpLambda;
 
 import java.util.Locale;
 import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class Main2FunctionyPredicate {
 
@@ -31,7 +33,19 @@ public class Main2FunctionyPredicate {
         BiFunction<String,String,String> bf3= String::concat;
         System.out.println(bf2.apply("erick","ian"));
 
-        //Predicate
+        //Predicate Devuelve siempre un booleano
+        Predicate<Integer> test= num-> num>10;
+        boolean r= test.test(7);
+        System.out.println("r = " + r);
+
+        Predicate<String> t2= role-> role.equals("ROLE_ADMIN");
+        System.out.println("t2.test(\"ROLE_ADMIN\") = " + t2.test("ROLE_ADMIN"));
+
+        BiPredicate<String,String> igual =String::equals;
+        System.out.println("igual.test(\"hola\",\"hola\") = " + igual.test("hola","hola"));
+
+
+
 
 
 
