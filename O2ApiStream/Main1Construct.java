@@ -5,6 +5,7 @@ import O2ApiStream.models.Usuario;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -53,7 +54,8 @@ public class Main1Construct {
 
         /*Existen dos tipos de operadores, los intermedios y los finales. Los intermedio son para realizar
         transformaciones como map,peek,filter, y los finales para realizar acciones (imprimir con foreach)
-         o convertir flujo a otro tipo, como flujo a list, ejemplos: forEach() collect()
+         o convertir flujo a otro tipo, como flujo a list, ejemplos: forEach(), collect(), findFirst(),
+          findAny(),anyMatch()
          */
 
         //El forEach recibe un consumer
@@ -107,8 +109,42 @@ public class Main1Construct {
                 .filter((u)->u.getName().equals("Pepe"))
                 .peek(System.out::println);
 
-        List<Usuario> listU= f5.collect(Collectors.toList());
-        listU.forEach(System.out::println);
+        //List<Usuario> listU= f5.collect(Collectors.toList());
+        //listU.forEach(System.out::println);
+
+        System.out.println("----u1-----");
+
+        //-con .findFirst() (terminal) Podemos optar por obtener solo uno, el primero que cumpla con filter
+        Optional<Usuario> usu1=f5.findFirst();
+
+        Usuario usu2 = Stream.of("Pepe Garcia","Pedro Carruthers","Juan Lopez","Pepe Muña")
+                .map((s)->new Usuario(s.split(" ")[0],s.split(" ")[1]))
+                .filter((u)->u.getName().equals("Pepe"))
+                .findFirst().get();
+
+        System.out.println(usu1.get()+" - "+ usu2);
+
+
+        //Busqueda por Id
+        Usuario usu3 = Stream.of("Pepe Garcia","Pedro Carruthers","Juan Lopez","Pepe Muña")
+                .map((s)->new Usuario(s.split(" ")[0],s.split(" ")[1]))
+                .filter((u)->u.getId().equals(9))
+                .findFirst().get();
+        System.out.println("id=9 - "+usu3);
+
+        //con anyMatch() (terminal) podemos saber si existe un usuario que cumpla las caracteristicas, retorna boolean.
+        
+        boolean existeId12 = Stream.of("Pepe Garcia","Pedro Carruthers","Juan Lopez","Pepe Muña")
+                .map((s)->new Usuario(s.split(" ")[0],s.split(" ")[1]))
+                .anyMatch((u)->u.getId().equals(12));
+        System.out.println("existeId12 = " + existeId12);
+
+        //con count() (terminal) podemos indicar la cantidad de elementos del Strem
+
+        long cantidadElemStream = Stream.of("Pepe Garcia","Pedro Carruthers","Juan Lopez","Pepe Muña")
+                .map((s)->new Usuario(s.split(" ")[0],s.split(" ")[1]))
+                .count();
+        System.out.println("cantidadElemStream = " + cantidadElemStream);
 
 
     }
