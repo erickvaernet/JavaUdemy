@@ -52,15 +52,21 @@ public class Main1Construct {
         lista.stream().forEach(System.out::println);
 
         /*Existen dos tipos de operadores, los intermedios y los finales. Los intermedio son para realizar
-        transformaciones y los finales para realizar accion(imprimir con foreach) o convertir flujo a tipo
-        , como flujo a list*/
+        transformaciones como map,peek,filter, y los finales para realizar acciones (imprimir con foreach)
+         o convertir flujo a otro tipo, como flujo a list, ejemplos: forEach() collect()
+         */
 
         //El forEach recibe un consumer
         System.out.println("-------f1---------");
         flujo.forEach(System.out::println);
 
         System.out.println("-------f2Map---------");
-        //Map, para transformaciones (intermedio), como parametro recibe una interfaz Function
+        /*
+        -------------------------------**-Map y Peek-**-----------------------------------------------------------
+         Map: para transformaciones (intermedio), como parametro recibe una interfaz Function
+         Peek: Recibe un Consumer como parametro
+
+        */
 
         //Stream <String> f2map =flujo2.map(String::toUpperCase);
         //f2map.forEach(System.out::println);
@@ -88,6 +94,21 @@ public class Main1Construct {
         System.out.println("____Lista2____");
         List<Usuario> listUsuarios= f3.map(Usuario::new).collect(Collectors.toList());
         listUsuarios.forEach((u)->System.out.println(u.getName()));
+
+        /*
+        -----------------------------------*-Filter-*----------------------------------------------
+        Filter: Reibe un Predicate como parametro. Convierte el flujo en otro con los datos que cumplan
+        con el Predicate
+         */
+
+        System.out.println("----l3-----");
+        Stream<Usuario> f5 = Stream.of("Pepe Garcia","Pedro Carruthers","Juan Lopez","Pepe Muña")
+                .map((s)->new Usuario(s.split(" ")[0],s.split(" ")[1]))
+                .filter((u)->u.getName().equals("Pepe"))
+                .peek(System.out::println);
+
+        List<Usuario> listU= f5.collect(Collectors.toList());
+        listU.forEach(System.out::println);
 
 
     }
