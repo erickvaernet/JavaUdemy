@@ -22,7 +22,7 @@ public class Main1Construct {
         tubería.
         -Nos permiten crear flujos de datos continuos para procesar secuencias de elementos.
         -Los operadores reducen notablemete las tareas de transformaciones.
-        -Transforma y compone flujos con los operadores maps, filte, concat, distrinct(),flatmap,sorted,foresch, reduce,etc
+        -Transforma y compone flujos con los operadores maps, filte, concat, distinct(),flatmap,sorted,foresch, reduce,etc
         -Pueden ser creados desde listas, arreglos, rangos, etc.
         -Son INMUTABLES
         -Concurrencica hecho fácil
@@ -50,7 +50,7 @@ public class Main1Construct {
         lista.add("Pato");
         //Stream<String> flujo4=lista.stream();
         System.out.println("-------f4---------");
-        lista.stream().forEach(System.out::println);
+        lista.forEach(System.out::println);
 
         /*Existen dos tipos de operadores, los intermedios y los finales. Los intermedio son para realizar
         transformaciones como map,peek,filter, y los finales para realizar acciones (imprimir con foreach)
@@ -99,7 +99,7 @@ public class Main1Construct {
 
         /*
         -----------------------------------*-Filter-*----------------------------------------------
-        Filter: Reibe un Predicate como parametro. Convierte el flujo en otro con los datos que cumplan
+        Filter: Recibe un Predicate como parametro. Convierte el flujo en otro con los datos que cumplan
         con el Predicate
          */
 

@@ -1,18 +1,21 @@
 package O2ApiStream.models;
 
-import com.sun.management.GarbageCollectionNotificationInfo;
 
 import java.lang.management.GarbageCollectorMXBean;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
     private String name;
     private String apellido;
     private Integer id;
     private static int lastId;
+    private List<Factura> facturas;
 
     public Usuario(String name) {
         this.name = name;
         this.id=++lastId;
+        this.facturas= new ArrayList<>();
 
     }
 
@@ -20,6 +23,8 @@ public class Usuario {
         this.name = name;
         this.apellido = apellido;
         this.id=++lastId;
+        this.facturas= new ArrayList<>();
+
     }
 
     public String getName() {
@@ -44,6 +49,16 @@ public class Usuario {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Usuario addFactura(Factura factura){
+        this.facturas.add(factura);
+        factura.setUsuario(this);
+        return this;
+    }
+
+    public List<Factura> getFacturas() {
+        return facturas;
     }
 
     @Override
