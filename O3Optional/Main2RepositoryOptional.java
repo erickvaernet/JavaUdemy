@@ -2,6 +2,7 @@ package O3Optional;
 
 import O3Optional.models.Computador;
 import O3Optional.repositorio.ComputadorRepositorio;
+import O3Optional.repositorio.Repositorio;
 
 import javax.crypto.spec.PSource;
 import javax.swing.*;
@@ -53,6 +54,11 @@ public class Main2RepositoryOptional {
         String opArch= Optional.ofNullable(nombreArch).filter((a)->a.contains("."))
                 .map((a)-> a.substring(a.indexOf(".")+1)).orElseThrow();
         System.out.println("opArch = " + opArch);
+
+        //hacemos uso de flatMap cuando el método devuelve un Optional. Si devuelve objeto se hace uso de map
+        Repositorio<Computador> repo2 = new ComputadorRepositorio();
+        repo2.filtrar("rog").flatMap(Computador::getNombre2).ifPresent(System.out::println);
+
 
     }
 }

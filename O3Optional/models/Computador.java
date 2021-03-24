@@ -1,5 +1,7 @@
 package O3Optional.models;
 
+import java.util.Optional;
+
 public class Computador {
     private String nombre;
     private String modelo;
@@ -18,6 +20,10 @@ public class Computador {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public Optional<String> getNombre2() {
+        return Optional.ofNullable(nombre);
     }
 
     public void setNombre(String nombre) {
