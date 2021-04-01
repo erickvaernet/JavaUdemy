@@ -14,6 +14,7 @@ public class Main1Teorico {
         en "productos", prodA(interface),prodB(interface), y "fabricas abstractas"(interface o clase abstracta).
         Cuando tenemos una misma lógica pero mostramos de forma diferente, por ej, segun sist Op.
         Productos como familias de objetos que los podemos implementar d dif maneras
+        Esttructurales
          */
 
 
