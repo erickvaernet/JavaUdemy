@@ -22,16 +22,24 @@ public class Carpeta extends Componente {
 
 
     @Override
-    public String mostrar() {
-        StringBuilder sb= new StringBuilder(nombre);
-        sb.append("/");
+    public String mostrar(int nivel) {
+        StringBuilder sb= new StringBuilder("\t".repeat(nivel));
+        sb.append(nombre)
+                .append("/")
+                .append("\n");
         for (Componente c: contenido){
-            sb.append(c.mostrar());
+            sb.append(c.mostrar(nivel+1));
             if (c instanceof Archivo){
                 sb.append("\n");
             }
         }
         return sb.toString();
+    }
+
+    @Override
+    public boolean buscar(String nombre) {
+        if (this.nombre.equalsIgnoreCase(nombre)) return true;
+        return contenido.stream().anyMatch((c)-> c.buscar(nombre));
     }
 
     @Override
