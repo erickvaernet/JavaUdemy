@@ -37,5 +37,17 @@ public class Main {
         - El cliente debe crear todos los suscriptores necesarios y registrarlos con los notificadores adecuados.
 
          */
+        Corporacion google= new Corporacion("Google",1000);
+        google.addObserver(observable ->
+                System.out.println("Jhon:" + observable.toString()));
+
+        google.addObserver(observable ->
+                System.out.println("Maria:"+((Corporacion)observable).toString()));
+
+        google.setPrecio(2000);
+        google.setPrecio(3000);
+        google.setPrecio(1230);
+        google.setPrecio(43150);
+
     }
 }
